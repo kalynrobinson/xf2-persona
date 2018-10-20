@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="shinka_persona" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Persona]]></phrase>
+  <phrase title="shinka_persona_approve" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Approve]]></phrase>
+  <phrase title="shinka_persona_attach_persona" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Attach Account]]></phrase>
+  <phrase title="shinka_persona_attached_accounts" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Attached Accounts]]></phrase>
+  <phrase title="shinka_persona_detach" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Detach]]></phrase>
+  <phrase title="shinka_persona_pending_requests" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Pending Requests]]></phrase>
+  <phrase title="shinka_persona_personas" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Personas]]></phrase>
+  <phrase title="shinka_persona_reject" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[Reject]]></phrase>
+  <phrase title="shinka_persona_will_be_sent_a_request" version_id="1000001" version_string="0.0.0 Alpha.1"><![CDATA[This account will be sent a persona request.]]></phrase>
+</phrases>

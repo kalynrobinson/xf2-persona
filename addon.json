@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "[Shinka] Persona",
+    "description": "Allow users to create and manager subaccounts.",
+    "version_id": 1000001,
+    "version_string": "0.0.0 Alpha.1",
+    "dev": "Shinka",
+    "dev_url": "https://www.github.com/kalynrobinson",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require": [],
+    "icon": "fa-user"
+}

@@ -1,0 +1,56 @@
+{
+    "shinka_persona.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "ad1fc7723ec4e642aaf175b3d4ee5a2f"
+    },
+    "shinka_persona_approve.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "6f7351657f795bc1357a53142b1184cc"
+    },
+    "shinka_persona_attach_persona.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "aec54a713f38c49a79f8925f8154b95c"
+    },
+    "shinka_persona_attached_accounts.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "6089639fc327b2659c7b55c4878433e6"
+    },
+    "shinka_persona_detach.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "f200763a0dca7d4843032c057804f9e9"
+    },
+    "shinka_persona_pending_requests.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "a8ed407ac18448fc521c8a3555b40372"
+    },
+    "shinka_persona_personas.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "d4e50a9ea2253c9f06bc6bd451fb3a2c"
+    },
+    "shinka_persona_reject.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "d98ac12774fca5c3cbaffe276840c55f"
+    },
+    "shinka_persona_will_be_sent_a_request.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "1bd8a9f9f497c818c639ce4787b5909e"
+    }
+}

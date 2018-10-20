@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="public" route_prefix="account" sub_name="personas" format="personas/" controller="Shinka\Persona:Personas" context="account" action_prefix="action"/>
+</routes>

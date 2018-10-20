@@ -1,0 +1,78 @@
+<xf:title>{{ phrase('shinka_persona_personas') }}</xf:title>
+
+<xf:css src="shinka_persona.less"  />
+<xf:wrap template="account_wrapper" />
+
+<div class="block">
+	<div class="block-container">
+		<h3 class="block-header">{{ phrase('shinka_persona_attached_accounts') }}</h3>
+		<div class="block-body">
+			<xf:foreach loop="{$xf.visitor.Personas}" value="$persona">
+				<xf:form action="{{ link('account/detach-persona') }}">
+					<dl class="formRow formRow--input">
+						<dt class="text-left">
+							<div class="formRow-labelWrapper">
+								<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+								<xf:macro template="member_list_macros" name="item"
+										  arg-user="{$persona}" />
+							</div>
+						</dt>
+						<dd>
+							<xf:button type="submit" name="reject" icon="cancel">{{ phrase('shinka_persona_detach') }}</xf:button>
+						</dd>
+					</dl>
+				</xf:form>
+				<xf:else />
+				<li class="block-row">{{ phrase('no_users_match_specified_criteria') }}</li>
+			</xf:foreach>
+		</div>
+	</div>
+</div>
+
+<div class="block">
+	<div class="block-container">
+		<h3 class="block-header">{{ phrase('shinka_persona_pending_requests') }}</h3>
+		<div class="block-body">
+			<xf:foreach loop="{$xf.visitor.pendingPersonas}" value="$persona">
+				<dl class="formRow formRow--input">
+					<dt class="text-left">
+						<div class="formRow-labelWrapper">
+							<xf:macro template="member_list_macros" name="item"
+									  arg-user="{$persona}" />
+						</div>
+					</dt>
+					<dd class="valign-middle">
+						<xf:form action="{{ link('account/detach-persona') }}" ajax="true" data-force-flash-message="true" class="d-inline">
+							<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+							<xf:button type="submit" name="reject" icon="cancel">
+								{{ phrase('shinka_persona_reject') }}
+							</xf:button>
+						</xf:form>
+
+						<xf:form action="{{ link('account/approve-persona') }}" ajax="true" data-force-flash-message="true" class="d-inline">
+							<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+							<xf:button type="submit" name="approve" icon="confirm" class="button--link">
+								{{ phrase('shinka_persona_approve') }}
+							</xf:button>
+						</xf:form>
+					</dd>
+				</dl>
+				<xf:else />
+				<li class="block-row">{{ phrase('no_users_match_specified_criteria') }}</li>
+			</xf:foreach>
+		</div>
+	</div>
+</div>
+
+<xf:form action="{{ link('account/request-persona') }}" ajax="true" class="block" data-force-flash-message="true">
+	<div class="block-container">
+		<h3 class="block-header">{{ phrase('shinka_persona_attach_persona') }}</h3>
+		<div class="block-body">
+			<xf:textboxrow name="username" type="search" ac="single"
+				placeholder="{{ phrase('user_name...') }}"
+				label="{{ phrase('user_name') }}"
+						   explain="{{ phrase('shinka_persona_will_be_sent_a_request') }}" />
+		</div>
+		<xf:submitrow icon="save" sticky="false" />
+	</div>
+</xf:form>

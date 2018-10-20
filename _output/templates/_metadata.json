@@ -1,0 +1,12 @@
+{
+    "public/shinka_persona.less": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "242112ee020667014ba3384b02761c95"
+    },
+    "public/shinka_persona_account_view.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "2b2f1cea1a69adac81fef5a3573ac172"
+    }
+}
