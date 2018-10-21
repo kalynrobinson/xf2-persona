@@ -85,6 +85,13 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         $username = $this->filter('username', 'string');
         $user = $this->repository("XF:User")->getUserByNameOrEmail($username);
 
+        if (!$user) {
+            return $this->error(
+                'User does not exist',
+                404
+            );
+        }
+
         $persona = $this->assertPersonaExists(
             \XF::visitor(),
             $user->user_id
