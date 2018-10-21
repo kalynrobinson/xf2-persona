@@ -1,0 +1,9 @@
+{
+    "template": "account_visitor_menu",
+    "description": "Adds Personas link to account nav menu.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:account_links:bottom]-->",
+    "replace": "<li><a href=\"{{ link('account/personas') }}\" class=\"menu-linkRow\">{{ phrase('shinka_persona_personas') }}</a></li>\n$0"
+}

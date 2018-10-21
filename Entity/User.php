@@ -2,11 +2,12 @@
 
 namespace Shinka\Persona\Entity;
 
-class User extends XFCP_User {
+class User extends XFCP_User
+{
 
     /**
      * Maps Personas and Parents, then map to User.
-     * 
+     *
      * @return \XF\Mvc\Entity\AbstractCollection
      */
     public function getPersonas()
@@ -21,34 +22,32 @@ class User extends XFCP_User {
     }
 
     /**
-     * Maps Personas to Personas->User.
-     * 
      * @return \XF\Mvc\Entity\AbstractCollection
      */
     public function getPendingPersonas()
     {
-        $pivot = $this->Parents_->filter(function ($persona) {
+        return $this->Parents_->filter(function ($persona) {
             return !$persona->approved;
-        });
-        return $pivot->pluckNamed('Parent');
+        })->pluckNamed('Parent');
     }
 
     /**
-     * Maps Personas and Parents, then map to User.
-     * 
+     * @return \XF\Mvc\Entity\AbstractCollection
+     */
+    public function getAwaitingPersonas()
+    {
+        return $this->Personas_->filter(function ($persona) {
+            return !$persona->approved;
+        })->pluckNamed('User');
+    }
+
+    /**
+     * Merges Parents and Personas.
+     *
      * @return \XF\Mvc\Entity\AbstractCollection
      */
     public function getPersonaPivots()
     {
-        $pivot = $this->Personas_->filter(function ($persona) {
-            return $persona->approved;
-        });
-        $parents = $this->Parents_->filter(function ($persona) {
-            return $persona->approved;
-        });
-        return $pivot->merge($parents);
+        return $this->Personas_->merge($this->Parents_);
     }
 }
-
-
-

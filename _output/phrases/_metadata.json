@@ -23,6 +23,18 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "6089639fc327b2659c7b55c4878433e6"
     },
+    "shinka_persona_awaiting_response.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "b22e64b9eab6f1534680a0424a5d0bc9"
+    },
+    "shinka_persona_create_persona.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "86e78f392ea9fb9988e1b860779047e1"
+    },
     "shinka_persona_detach.txt": {
         "global_cache": false,
         "version_id": 1000001,
@@ -46,6 +58,12 @@
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",
         "hash": "d98ac12774fca5c3cbaffe276840c55f"
+    },
+    "shinka_persona_revoke_request.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "677b1166b26d417493c0b43e02424ed9"
     },
     "shinka_persona_will_be_sent_a_request.txt": {
         "global_cache": false,

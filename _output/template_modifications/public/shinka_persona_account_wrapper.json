@@ -1,0 +1,9 @@
+{
+    "template": "account_wrapper",
+    "description": "Adds Personas link to account wrapper menu.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:settings_links:bottom]-->",
+    "replace": "<a class=\"blockLink {{ $pageSelected == 'personas' ? 'is-selected' : '' }}\" href=\"{{ link('account/personas') }}\">\n\t{{ phrase('shinka_persona_personas') }}\n</a>\n$0"
+}

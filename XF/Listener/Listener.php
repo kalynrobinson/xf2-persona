@@ -12,17 +12,18 @@ class Listener
             'entity' => 'Shinka\Persona:Persona',
             'type' => Entity::TO_MANY,
             'conditions' => [['parent_id', '=', '$user_id']],
-            'primary' => true
+            'primary' => true,
         ];
         $structure->relations['Parents'] = [
             'entity' => 'Shinka\Persona:Persona',
             'type' => Entity::TO_MANY,
             'conditions' => [['persona_id', '=', '$user_id']],
-            'primary' => true
+            'primary' => true,
         ];
 
         $structure->getters['Personas'] = true;
-        $structure->getters['pendingPersonas'] = true;
         $structure->getters['personaPivots'] = true;
+        $structure->getters['pendingPersonas'] = true;
+        $structure->getters['awaitingPersonas'] = true;
     }
 }
