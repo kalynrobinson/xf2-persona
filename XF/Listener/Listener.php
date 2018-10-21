@@ -22,6 +22,7 @@ class Listener
         ];
 
         $structure->getters['Personas'] = true;
+        $structure->getters['Parents'] = true;
         $structure->getters['personaPivots'] = true;
         $structure->getters['pendingPersonas'] = true;
         $structure->getters['awaitingPersonas'] = true;

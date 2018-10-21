@@ -22,6 +22,18 @@ class User extends XFCP_User
     }
 
     /**
+     * Maps Personas and Parents, then map to User.
+     *
+     * @return \XF\Mvc\Entity\AbstractCollection
+     */
+    public function getParents()
+    {
+        return $this->Parents_->filter(function ($persona) {
+            return $persona->approved;
+        })->pluckNamed('Parent');
+    }
+
+    /**
      * @return \XF\Mvc\Entity\AbstractCollection
      */
     public function getPendingPersonas()
