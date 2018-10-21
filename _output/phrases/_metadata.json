@@ -41,6 +41,12 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "f200763a0dca7d4843032c057804f9e9"
     },
+    "shinka_persona_parent.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "30269022e9d8f51beaabb52e5d0de2b7"
+    },
     "shinka_persona_pending_requests.txt": {
         "global_cache": false,
         "version_id": 1000001,

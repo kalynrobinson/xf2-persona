@@ -1,0 +1,9 @@
+{
+    "template": "message_macros",
+    "description": "Adds Parent row to user info macro.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$extras.register_date\">",
+    "replace": "<xf:if is=\"$user.Parents is not empty\">\n\t<dl class=\"pairs pairs--justified\">\n\t\t<dt>{{ phrase('shinka_persona_parent') }}</dt>\n\t\t<dd>\n\t\t\t<xf:username user=\"$user.Parents.first()\" rich=\"true\" notooltip=\"true\" />\n\t\t</dd>\n\t</dl>\n</xf:if>\n$0"
+}

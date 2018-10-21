@@ -7,5 +7,8 @@
     },
     "public/shinka_persona_member_view.json": {
         "hash": "600e32e7846f196c346b889cbdd660db"
+    },
+    "public/shinka_persona_message_user_info.json": {
+        "hash": "55e59f7f77abebc6bb589620a720cdc3"
     }
 }
