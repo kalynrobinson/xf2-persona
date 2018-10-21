@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Adds Personas row to member header.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<h2 class=\"block-tabHeader",
+    "replace": "<div class=\"block-row\">\n\t<xf:if is=\"$user.Personas is not empty\">\n\t\t<xf:foreach loop=\"$user.Personas\" value=\"$persona\">\n\t\t\t<xf:avatar user=\"{$persona}\" size=\"s\" />\n\t\t</xf:foreach>\n\t</xf:if>\n</div>\n$0"
+}

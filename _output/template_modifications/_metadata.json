@@ -4,5 +4,8 @@
     },
     "public/shinka_persona_account_wrapper.json": {
         "hash": "99bcbbda853a22185154ba4d025777c0"
+    },
+    "public/shinka_persona_member_view.json": {
+        "hash": "600e32e7846f196c346b889cbdd660db"
     }
 }
