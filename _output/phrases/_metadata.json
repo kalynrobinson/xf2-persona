@@ -5,6 +5,12 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "ad1fc7723ec4e642aaf175b3d4ee5a2f"
     },
+    "shinka_persona_already_requested.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "fed22e001c0717684122d424e76bb170"
+    },
     "shinka_persona_approve.txt": {
         "global_cache": false,
         "version_id": 1000001,
@@ -29,6 +35,12 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "b22e64b9eab6f1534680a0424a5d0bc9"
     },
+    "shinka_persona_cannot_request_yourself.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "5c5e4aae0233b9fe915d06b12223ac63"
+    },
     "shinka_persona_create_persona.txt": {
         "global_cache": false,
         "version_id": 1000001,
@@ -40,6 +52,12 @@
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",
         "hash": "f200763a0dca7d4843032c057804f9e9"
+    },
+    "shinka_persona_does_not_exist.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "50213fe6c295521d049adec05aa94f6e"
     },
     "shinka_persona_parent.txt": {
         "global_cache": false,

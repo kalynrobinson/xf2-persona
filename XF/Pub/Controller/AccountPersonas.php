@@ -35,7 +35,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         );
 
         if (!$persona) {
-            return $this->error('Persona does not exist.', 404);
+            return $this->error(\XF::phrase('shinka_persona_does_not_exist'), 404);
         }
 
         $persona->delete();
@@ -76,7 +76,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         );
 
         if (!$persona) {
-            return $this->error('Persona does not exist.', 404);
+            return $this->error(\XF::phrase('shinka_persona_does_not_exist'), 404);
         }
 
         $created = $this->createPersona(
@@ -108,12 +108,12 @@ class AccountPersonas extends \XF\Pub\Controller\Account
 
         // Exit if user does not exist
         if (!$user) {
-            return $this->error('User does not exist', 404);
+            return $this->error(\XF::phrase('requested_user_not_found'), 404);
         }
 
         // Exit if user and visitor are the same
         if ($visitor->user_id === $user->user_id) {
-            return $this->error('Cannot request yourself', 422);
+            return $this->error(\XF::phrase('shinka_persona_cannot_request_yourself'), 422);
         }
 
         $persona = $this->assertPersonaExists(
@@ -125,8 +125,8 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         if ($persona) {
             return $this->error(
                 $persona->approved ?
-                'Persona already exists.' :
-                'Persona already requested.',
+                \XF::phrase('shinka_persona_already_exists') :
+                \XF::phrase('shinka_persona_already_requested'),
                 422
             );
         }
