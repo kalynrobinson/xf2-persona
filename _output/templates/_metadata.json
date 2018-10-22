@@ -9,6 +9,21 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "7e746330a871bc8af1b456bfdcb07b33"
     },
+    "public/alert_user_persona_detached.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "9a90099e8f0766be2fdd566e74599c04"
+    },
+    "public/alert_user_persona_request_rejected.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "a9dd43fa83626e179d807ab70df401ff"
+    },
+    "public/alert_user_persona_request_revoked.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "295020a9e538eecc077ba0b6808d10e5"
+    },
     "public/shinka_persona.less": {
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",

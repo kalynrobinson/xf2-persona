@@ -83,11 +83,29 @@
         "version_string": "0.0.0 Alpha.1",
         "hash": "bab2d4836789775c57c8277f95805627"
     },
+    "shinka_persona_request_was_rejected.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "429ad3be9eeb661dba7a46e604a22c13"
+    },
+    "shinka_persona_request_was_revoked.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "5c1126766f85d24ab4f7b6c2cce8f50e"
+    },
     "shinka_persona_revoke_request.txt": {
         "global_cache": false,
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",
         "hash": "677b1166b26d417493c0b43e02424ed9"
+    },
+    "shinka_persona_was_detached.txt": {
+        "global_cache": false,
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "b07a487845a44bfacc2062c2e5aa567d"
     },
     "shinka_persona_will_be_sent_a_request.txt": {
         "global_cache": false,

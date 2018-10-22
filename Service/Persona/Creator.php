@@ -21,13 +21,17 @@ class Creator extends \XF\Service\AbstractService
 	
 	public function createPersona($parent_id, $persona_id, $approved)
 	{
-		$persona = $this->em()->find('Shinka\Persona:Persona', [$parent_id, $persona_id]);
+		$persona = $this->em()->findOne('Shinka\Persona:Persona', [
+			"parent_id" => $parent_id, 
+			"persona_id" =>$persona_id
+		]);
 
 		if (!$persona) {
 			$persona = $this->em()->create('Shinka\Persona:Persona');
 			$persona->parent_id = $parent_id;
 			$persona->persona_id = $persona_id;
 		}
+		
 		$persona->approved = $approved;
         $this->persona = $persona;
 	}

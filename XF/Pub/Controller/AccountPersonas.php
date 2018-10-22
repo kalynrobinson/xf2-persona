@@ -40,14 +40,19 @@ class AccountPersonas extends \XF\Pub\Controller\Account
 
         $persona->delete();
 
+        $action = 'persona_detached';
         // Send alert to user not requesting detachment.
         if ($persona->parent_id === $visitor->user_id) {
             $recipient = $persona->User;
             $sender_id = $persona->parent_id;
+            if (!$persona->approved) $action = 'persona_request_revoked';
         } else {
             $recipient = $persona->Parent;
             $sender_id = $persona->persona_id;
+            if (!$persona->approved) $action = 'persona_request_rejected';
         }
+
+        $this->sendAlert($recipient, $sender_id, $sender_id, $action, 'user');
 
         return $this->redirect('account/personas');
     }
@@ -217,11 +222,11 @@ class AccountPersonas extends \XF\Pub\Controller\Account
     }
 
     /**
-     * Undocumented function
+     * Finds matching persona in user's persona pivots.
      *
      * @param \XF\Entity\User $user
      * @param integer $persona_id
-     * @return void
+     * @return \XF\Entity\User $user|null
      */
     protected function assertPersonaExists(\XF\Entity\User $user, int $persona_id)
     {
@@ -233,12 +238,13 @@ class AccountPersonas extends \XF\Pub\Controller\Account
     }
 
     /**
-     * Undocumented function
+     * Creates user alert.
      *
-     * @param [type] $recipient
-     * @param [type] $sender_id
-     * @param [type] $content_id
-     * @param [type] $action
+     * @param \XF\Entity\User $recipient
+     * @param int    $sender_id
+     * @param int    $content_id
+     * @param string $action
+     * @param string [$content_type='persona']
      * @return void
      */
     public function sendAlert($recipient, $sender_id, $content_id, $action, $content_type = 'persona')
