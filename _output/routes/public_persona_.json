@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "persona",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "Shinka\\Persona\\XF\\Pub\\Controller\\Persona",
+    "context": "index",
+    "action_prefix": ""
+}
