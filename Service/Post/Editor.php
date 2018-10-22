@@ -28,6 +28,14 @@ class Editor extends XFCP_Editor
             $post->user_id = $author->user_id;
             $post->username = $author->username;
             $post->save();
+                
+            // Update forum's last post
+            $forum = $post->Thread->Forum;
+            if ($forum->last_post_id === $post->post_id) {
+                $forum->last_post_user_id = $author->user_id;
+                $forum->last_post_username = $author->username;
+                $forum->save();
+            }
         }
 
         return $post;

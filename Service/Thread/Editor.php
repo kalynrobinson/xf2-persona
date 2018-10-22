@@ -22,12 +22,20 @@ class Editor extends XFCP_Editor
     protected function _save()
     {
         $thread = parent::_save();
+        $user_id = $thread->user_id;
         $author = $this->author;
 
-        if ($author && $author->user_id !== $thread->user_id) {
+        if ($author && $author->user_id !== $user_id) {
             $thread->user_id = $author->user_id;
             $thread->username = $author->username;
-            $thread->save();
+
+            // Update last post if applicable
+            if ($thread->first_post_id === $thread->last_post_id) {
+                $thread->last_post_user_id = $author->user_id;
+                $thread->last_post_username = $author->username;
+            }
+
+            $thread->save();              
         }
 
         return $thread;
