@@ -28,8 +28,9 @@ class AccountPersonas extends \XF\Pub\Controller\Account
     {
         $this->assertPostOnly();
 
+        $visitor = \XF::visitor();
         $persona = $this->assertPersonaExists(
-            \XF::visitor(),
+            $visitor,
             $this->filter('persona_id', 'uint')
         );
 
@@ -38,6 +39,16 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         }
 
         $persona->delete();
+
+        // Send alert to user not requesting detachment.
+        if ($persona->parent_id === $visitor->user_id) {
+            $recipient = $persona->User;
+            $sender_id = $persona->parent_id;
+        } else {
+            $recipient = $persona->Parent;
+            $sender_id = $persona->persona_id;
+        }
+
         return $this->redirect('account/personas');
     }
 
@@ -52,8 +63,10 @@ class AccountPersonas extends \XF\Pub\Controller\Account
     {
         $this->assertPostOnly();
 
+        $visitor = \XF::visitor();
+
         $persona = $this->assertPersonaExists(
-            \XF::visitor(),
+            $visitor,
             $this->filter('persona_id', 'uint')
         );
 
@@ -61,11 +74,13 @@ class AccountPersonas extends \XF\Pub\Controller\Account
             return $this->error('Persona does not exist.', 404);
         }
 
-        $this->createPersona(
+        $created = $this->createPersona(
             $this->filter('persona_id', 'uint'),
-            \XF::visitor()->user_id,
+            $visitor->user_id,
             true
         );
+
+        $this->sendAlert($persona->Parent, $visitor->user_id, $created->id, 'approved');
 
         return $this->redirect('account/personas');
     }
@@ -84,12 +99,16 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         // Fetch user
         $username = $this->filter('username', 'string');
         $user = $this->repository("XF:User")->getUserByNameOrEmail($username);
+        $visitor = \XF::visitor();
 
+        // Exit if user does not exist
         if (!$user) {
-            return $this->error(
-                'User does not exist',
-                404
-            );
+            return $this->error('User does not exist', 404);
+        }
+
+        // Exit if user and visitor are the same
+        if ($visitor->user_id === $user->user_id) {
+            return $this->error('Cannot request yourself', 422);
         }
 
         $persona = $this->assertPersonaExists(
@@ -97,6 +116,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
             $user->user_id
         );
 
+        // Exit if persona already exists/requested
         if ($persona) {
             return $this->error(
                 $persona->approved ?
@@ -109,11 +129,13 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         /** @todo Set this conditionally, per user/group permissions */
         $approved = false;
 
-        $this->createPersona(
-            \XF::visitor()->user_id,
+        $created = $this->createPersona(
+            $visitor->user_id,
             $user->user_id,
             $approved
         );
+
+        $this->sendAlert($user, $visitor->user_id, $created->id, 'request');
 
         return $this->redirect('account/personas');
     }
@@ -186,7 +208,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
      */
     protected function createPersona(int $parent_id, int $persona_id, $approved = false)
     {
-        $this->service(
+        return $this->service(
             'Shinka\Persona:Persona\Creator',
             $parent_id,
             $persona_id,
@@ -208,5 +230,28 @@ class AccountPersonas extends \XF\Pub\Controller\Account
                 return $persona->persona_id === $persona_id || $persona->parent_id === $persona_id;
             }
         )->first();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $recipient
+     * @param [type] $sender_id
+     * @param [type] $content_id
+     * @param [type] $action
+     * @return void
+     */
+    public function sendAlert($recipient, $sender_id, $content_id, $action, $content_type = 'persona')
+    {
+        /** @var \XF\Repository\UserAlert $alertRepo */
+        $alertRepo = $this->repository('XF:UserAlert');
+        $alertRepo->alert(
+            $recipient,
+            $sender_id,
+            '',
+            $content_type,
+            $content_id,
+            $action
+        );
     }
 }

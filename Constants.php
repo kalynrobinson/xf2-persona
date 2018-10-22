@@ -11,7 +11,7 @@ class Constants
 {
     /** @var string Database table name */
     public static $table = 'xf_shinka_persona';
-    
+
     /**
      * @return \Shinka\Persona\Entity\TableSchema
      */
@@ -22,21 +22,27 @@ class Constants
             'primary_key' => ['parent_id', 'persona_id'],
             'columns' => [
                 [
+                    'name' => 'id',
+                    'type' => 'int',
+                    'nullable' => false,
+                    'autoIncrement' => true,
+                ],
+                [
                     'name' => 'parent_id',
-                    'type' => 'int'
-                ], 
+                    'type' => 'int',
+                ],
                 [
                     'name' => 'persona_id',
-                    'type' => 'int'
+                    'type' => 'int',
                 ],
                 [
                     'name' => 'approved',
                     'type' => 'tinyint',
-                    'default' => 0
-                ]
-            ]
+                    'default' => 0,
+                ],
+            ],
         ];
 
         return new TableSchema($data['name'], $data['primary_key'], $data['columns']);
-    } 
+    }
 }

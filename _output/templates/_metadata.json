@@ -1,4 +1,14 @@
 {
+    "public/alert_persona_approved.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "30e153bebd35c2f6a89cea1d92f059e2"
+    },
+    "public/alert_persona_request.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "7e746330a871bc8af1b456bfdcb07b33"
+    },
     "public/shinka_persona.less": {
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",
