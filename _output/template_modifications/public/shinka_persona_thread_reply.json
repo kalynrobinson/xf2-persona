@@ -1,0 +1,9 @@
+{
+    "template": "thread_reply",
+    "description": "Adds Post As field to reply form.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:else />",
+    "replace": "$0\n<xf:macro template=\"shinka_persona_macros\" name=\"post_as\" />"
+}

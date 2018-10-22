@@ -1,0 +1,9 @@
+{
+    "template": "post_edit",
+    "description": "Adds Post As row to post edit.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "label=\"{{ phrase('message') }}\" />",
+    "replace": "$0\n<xf:macro template=\"shinka_persona_macros\" name=\"post_as\" \n\t\t  arg-rowtype=\"{{ $quickEdit ? 'fullWidth noLabel' : '' }}\"\n\t\t  arg-user=\"{$post.User}\" />\n"
+}
