@@ -33,5 +33,10 @@
         "version_id": 1000001,
         "version_string": "0.0.0 Alpha.1",
         "hash": "be408eb432a9b05d8f88c4933347548f"
+    },
+    "public/shinka_persona_macros.html": {
+        "version_id": 1000001,
+        "version_string": "0.0.0 Alpha.1",
+        "hash": "9f89c045a8bcd9e6789fc38d8eeca53e"
     }
 }

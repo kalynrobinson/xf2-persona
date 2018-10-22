@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Service\\Thread\\Creator",
+    "to_class": "Shinka\\Persona\\Service\\Thread\\Creator",
+    "execute_order": 10,
+    "active": true
+}

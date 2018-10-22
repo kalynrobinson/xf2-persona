@@ -1,0 +1,21 @@
+<xf:macro
+    name="post_as"
+    arg-user="{$xf.visitor}"
+	arg-rowtype="">
+	<xf:if is="$user.Personas is not empty">
+		<xf:formrow label="{{ phrase('shinka_persona_post_as') }}" rowtype="{$rowtype}">
+			<div class="inputGroup inputGroup--inline">
+				<xf:select name="shinka_persona_author_id" value="{{ $user.user_id }}">
+					<xf:option value="{$user.user_id}">
+						{$user.username}
+					</xf:option>
+					<xf:foreach loop="{{ $user.Personas }}" value="$persona">
+						<xf:option value="{$persona.user_id}">
+							{$persona.username}
+						</xf:option>
+					</xf:foreach>
+				</xf:select>
+			</div>
+		</xf:formrow>
+	</xf:if>
+</xf:macro>

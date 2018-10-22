@@ -5,10 +5,25 @@
     "public/shinka_persona_account_wrapper.json": {
         "hash": "99bcbbda853a22185154ba4d025777c0"
     },
+    "public/shinka_persona_forum_post_thread.json": {
+        "hash": "0c6fc990108d99edb86e7484f07eb628"
+    },
     "public/shinka_persona_member_view.json": {
         "hash": "600e32e7846f196c346b889cbdd660db"
     },
     "public/shinka_persona_message_user_info.json": {
         "hash": "55e59f7f77abebc6bb589620a720cdc3"
+    },
+    "public/shinka_persona_page_container.json": {
+        "hash": "d35e071561b3e9d2bfdfa7ed9e854450"
+    },
+    "public/shinka_persona_post_edit.json": {
+        "hash": "cee8ab03b34b35eb85e03d944aefdd29"
+    },
+    "public/shinka_persona_quick_reply_macros.json": {
+        "hash": "b2078946ea0ae830c6ae6bf84094b19b"
+    },
+    "public/shinka_persona_thread_reply.json": {
+        "hash": "efbf847750aa4bad0cc6415aef370d35"
     }
 }

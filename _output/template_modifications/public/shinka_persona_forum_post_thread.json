@@ -1,0 +1,9 @@
+{
+    "template": "forum_post_thread",
+    "description": "Add author row to new thread form.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$forum.canEditTags()\">",
+    "replace": "<xf:if is=\"$xf.visitor.Personas is not empty\">\n\t<xf:formrow label=\"{{ phrase('shinka_persona_post_as') }}\">\n\t\t<div class=\"inputGroup inputGroup--inline\">\n\t\t\t<xf:select name=\"shinka_persona_author_id\" value=\"{{ $xf.visitor.user_id }}\">\n\t\t\t\t<xf:option value=\"{$xf.visitor.user_id}\">\n\t\t\t\t\t{$xf.visitor.username}\n\t\t\t\t</xf:option>\n\t\t\t\t<xf:foreach loop=\"{{ $xf.visitor.Personas }}\" value=\"$persona\">\n\t\t\t\t\t<xf:option value=\"{$persona.user_id}\">\n\t\t\t\t\t\t{$persona.username}\n\t\t\t\t\t</xf:option>\n\t\t\t\t</xf:foreach>\n\t\t\t</xf:select>\n\t\t</div>\n\t</xf:formrow>\n</xf:if>\n$0"
+}

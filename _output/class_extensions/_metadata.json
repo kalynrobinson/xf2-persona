@@ -4,5 +4,26 @@
     },
     "XF-Pub-Controller-Account_Shinka-Persona-XF-Pub-Controller-AccountPersonas.json": {
         "hash": "85b390e4a44f79d66dfa4e88a4165f00"
+    },
+    "XF-Pub-Controller-Forum_Shinka-Persona-XF-Pub-Controller-Forum.json": {
+        "hash": "cec5e43cb71e4968c6a1040d6f176eef"
+    },
+    "XF-Pub-Controller-Post_Shinka-Persona-XF-Pub-Controller-Post.json": {
+        "hash": "e25129e15a14f12e1aa729562629ac75"
+    },
+    "XF-Pub-Controller-Thread_Shinka-Persona-XF-Pub-Controller-Thread.json": {
+        "hash": "cb24de9fec756b791879975bb0c3271b"
+    },
+    "XF-Service-Post-Editor_Shinka-Persona-Service-Post-Editor.json": {
+        "hash": "30d0683881f98068d0dc34f8a6324800"
+    },
+    "XF-Service-Thread-Creator_Shinka-Persona-Service-Thread-Creator.json": {
+        "hash": "3c59f0b288f164ce472e50f9937d50bc"
+    },
+    "XF-Service-Thread-Editor_Shinka-Persona-Service-Thread-Editor.json": {
+        "hash": "f929a48b5a3e6f960027b5d2c7f00719"
+    },
+    "XF-Service-Thread-Replier_Shinka-Persona-Service-Thread-Replier.json": {
+        "hash": "89ad2b2c2788258ac14a459ea07a9e87"
     }
 }
