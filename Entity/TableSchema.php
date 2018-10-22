@@ -43,7 +43,7 @@ class TableSchema
                 if (isset($column['default'])) {
                     $col->setDefault($column['default']);
                 }
-                if (isset($column['nullable']) && !$column['nullable']) {
+                if (isset($column['nullable']) && $column['nullable']) {
                     $col->nullable();
                 }
                 if (isset($column['autoIncrement']) && $column['autoIncrement']) {

@@ -1,6 +1,6 @@
 <xf:title>{{ phrase('shinka_persona_personas') }}</xf:title>
 
-<xf:css src="shinka_persona.less"  />
+<xf:css src="shinka_persona.less" />
 <xf:wrap template="account_wrapper" />
 
 <div class="block">
@@ -12,9 +12,8 @@
 					<dl class="formRow formRow--input">
 						<dt class="text-left">
 							<div class="formRow-labelWrapper">
-								<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
-								<xf:macro template="member_list_macros" name="item"
-										  arg-user="{$persona}" />
+								<xf:hiddenval name="user_id">{$persona->user_id}</xf:hiddenval>
+								<xf:macro template="member_list_macros" name="item" arg-user="{$persona}" />
 							</div>
 						</dt>
 						<dd class="valign-middle">
@@ -37,20 +36,19 @@
 				<dl class="formRow formRow--input">
 					<dt class="text-left">
 						<div class="formRow-labelWrapper">
-							<xf:macro template="member_list_macros" name="item"
-									  arg-user="{$persona}" />
+							<xf:macro template="member_list_macros" name="item" arg-user="{$persona}" />
 						</div>
 					</dt>
 					<dd class="valign-middle">
 						<xf:form action="{{ link('account/detach-persona') }}" ajax="true" data-force-flash-message="true" class="d-inline">
-							<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+							<xf:hiddenval name="user_id">{$persona->user_id}</xf:hiddenval>
 							<xf:button type="submit" name="reject" icon="cancel">
 								{{ phrase('shinka_persona_reject') }}
 							</xf:button>
 						</xf:form>
 
 						<xf:form action="{{ link('account/approve-persona') }}" ajax="true" data-force-flash-message="true" class="d-inline">
-							<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+							<xf:hiddenval name="user_id">{$persona->user_id}</xf:hiddenval>
 							<xf:button type="submit" name="approve" icon="confirm" class="button--link">
 								{{ phrase('shinka_persona_approve') }}
 							</xf:button>
@@ -72,13 +70,12 @@
 					<dl class="formRow formRow--input">
 						<dt class="text-left">
 							<div class="formRow-labelWrapper">
-								<xf:macro template="member_list_macros" name="item"
-										  arg-user="{$persona}" />
+								<xf:macro template="member_list_macros" name="item" arg-user="{$persona}" />
 							</div>
 						</dt>
 						<dd class="valign-middle">
 							<xf:form action="{{ link('account/detach-persona') }}" ajax="true" data-force-flash-message="true" class="d-inline">
-								<xf:hiddenval name="persona_id">{$persona->user_id}</xf:hiddenval>
+								<xf:hiddenval name="user_id">{$persona->user_id}</xf:hiddenval>
 								<xf:button type="submit" name="revoke" icon="cancel">
 									{{ phrase('shinka_persona_revoke_request') }}
 								</xf:button>
@@ -95,10 +92,8 @@
 	<div class="block-container">
 		<h3 class="block-header">{{ phrase('shinka_persona_attach_persona') }}</h3>
 		<div class="block-body">
-			<xf:textboxrow name="username" type="search" ac="single"
-						   placeholder="{{ phrase('user_name...') }}"
-						   label="{{ phrase('user_name') }}"
-						   explain="{{ phrase('shinka_persona_will_be_sent_a_request') }}" />
+			<xf:textboxrow name="username" type="search" ac="single" placeholder="{{ phrase('user_name...') }}" label="{{ phrase('user_name') }}"
+			 explain="{{ phrase('shinka_persona_will_be_sent_a_request') }}" />
 		</div>
 		<xf:submitrow icon="save" sticky="false" />
 	</div>
@@ -108,12 +103,9 @@
 	<div class="block-container">
 		<h3 class="block-header">{{ phrase('shinka_persona_create_persona') }}</h3>
 		<div class="block-body">
-			<xf:textboxrow name="username" type="text"
-						   placeholder="{{ phrase('user_name...') }}"
-						   label="{{ phrase('user_name') }}" />
-			<xf:textboxrow name="password" type="password"
-						   placeholder="{{ phrase('password...') }}"
-						   label="{{ phrase('password') }}" />
+			<xf:textboxrow name="username" type="text" placeholder="{{ phrase('user_name...') }}" label="{{ phrase('user_name') }}" />
+			<xf:textboxrow name="password" type="password" placeholder="{{ phrase('password...') }}" label="{{ phrase('password') }}"
+			/>
 		</div>
 		<xf:submitrow icon="save" sticky="false" />
 	</div>

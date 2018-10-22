@@ -19,27 +19,26 @@ class Constants
     {
         $data = [
             'name' => Constants::$table,
-            'primary_key' => ['parent_id', 'persona_id'],
+            'primary_key' => 'persona_id',
             'columns' => [
                 [
-                    'name' => 'id',
+                    'name' => 'persona_id',
                     'type' => 'int',
-                    'nullable' => false,
-                    'autoIncrement' => true,
+                    'autoIncrement' => true
                 ],
                 [
                     'name' => 'parent_id',
                     'type' => 'int',
                 ],
                 [
-                    'name' => 'persona_id',
+                    'name' => 'user_id',
                     'type' => 'int',
                 ],
                 [
                     'name' => 'approved',
                     'type' => 'tinyint',
                     'default' => 0,
-                ],
+                ]
             ],
         ];
 

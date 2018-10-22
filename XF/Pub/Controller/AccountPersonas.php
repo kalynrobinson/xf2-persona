@@ -31,7 +31,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         $visitor = \XF::visitor();
         $persona = $this->assertPersonaExists(
             $visitor,
-            $this->filter('persona_id', 'uint')
+            $this->filter('user_id', 'uint')
         );
 
         if (!$persona) {
@@ -48,7 +48,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
             if (!$persona->approved) $action = 'persona_request_revoked';
         } else {
             $recipient = $persona->Parent;
-            $sender_id = $persona->persona_id;
+            $sender_id = $persona->user_id;
             if (!$persona->approved) $action = 'persona_request_rejected';
         }
 
@@ -72,7 +72,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
 
         $persona = $this->assertPersonaExists(
             $visitor,
-            $this->filter('persona_id', 'uint')
+            $this->filter('user_id', 'uint')
         );
 
         if (!$persona) {
@@ -80,12 +80,12 @@ class AccountPersonas extends \XF\Pub\Controller\Account
         }
 
         $created = $this->createPersona(
-            $this->filter('persona_id', 'uint'),
+            $this->filter('user_id', 'uint'),
             $visitor->user_id,
             true
         );
 
-        $this->sendAlert($persona->Parent, $visitor->user_id, $created->id, 'approved');
+        $this->sendAlert($persona->Parent, $visitor->user_id, $created->persona_id, 'approved');
 
         return $this->redirect('account/personas');
     }
@@ -140,7 +140,7 @@ class AccountPersonas extends \XF\Pub\Controller\Account
             $approved
         );
 
-        $this->sendAlert($user, $visitor->user_id, $created->id, 'request');
+        $this->sendAlert($user, $visitor->user_id, $created->persona_id, 'request');
 
         return $this->redirect('account/personas');
     }
@@ -207,16 +207,16 @@ class AccountPersonas extends \XF\Pub\Controller\Account
      * @see \Shinka\Persona\Service\Persona\Creator
      *
      * @param integer $parent_id
-     * @param integer $persona_id
+     * @param integer $user_id
      * @param boolean $approved
      * @return void
      */
-    protected function createPersona(int $parent_id, int $persona_id, $approved = false)
+    protected function createPersona(int $parent_id, int $user_id, $approved = false)
     {
         return $this->service(
             'Shinka\Persona:Persona\Creator',
             $parent_id,
-            $persona_id,
+            $user_id,
             $approved
         )->save();
     }
@@ -225,14 +225,14 @@ class AccountPersonas extends \XF\Pub\Controller\Account
      * Finds matching persona in user's persona pivots.
      *
      * @param \XF\Entity\User $user
-     * @param integer $persona_id
+     * @param integer $user_id
      * @return \XF\Entity\User $user|null
      */
-    protected function assertPersonaExists(\XF\Entity\User $user, int $persona_id)
+    protected function assertPersonaExists(\XF\Entity\User $user, int $user_id)
     {
         return $user->personaPivots->filter(
-            function ($persona) use ($persona_id) {
-                return $persona->persona_id === $persona_id || $persona->parent_id === $persona_id;
+            function ($persona) use ($user_id) {
+                return $persona->user_id === $user_id || $persona->parent_id === $user_id;
             }
         )->first();
     }

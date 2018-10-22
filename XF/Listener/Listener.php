@@ -17,7 +17,7 @@ class Listener
         $structure->relations['Parents'] = [
             'entity' => 'Shinka\Persona:Persona',
             'type' => Entity::TO_MANY,
-            'conditions' => [['persona_id', '=', '$user_id']],
+            'conditions' => [['user_id', '=', '$user_id']],
             'primary' => true,
         ];
 

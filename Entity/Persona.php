@@ -17,12 +17,12 @@ class Persona extends Entity
     {
         $structure->table = 'xf_shinka_persona';
         $structure->shortName = 'Shinka\Persona:Persona';
-        $structure->primaryKey = 'id';
+        $structure->primaryKey = 'persona_id';
         $structure->contentType = 'persona';
         $structure->columns = [
-            'id' => ['type' => self::UINT, 'autoIncrement' => true, 'nullable' => true],
+            'persona_id' => ['type' => self::UINT, 'autoIncrement' => true],
             'parent_id' => ['type' => self::UINT, 'required' => true],
-            'persona_id' => ['type' => self::UINT, 'required' => true],
+            'user_id' => ['type' => self::UINT, 'required' => true],
             'approved' => ['type' => self::BOOL, 'required' => false, 'default' => false],
         ];
         $structure->relations = [
@@ -35,7 +35,7 @@ class Persona extends Entity
             'User' => [
                 'entity' => 'XF:User',
                 'type' => self::TO_ONE,
-                'conditions' => [['user_id', '=', '$persona_id']],
+                'conditions' => [['user_id', '=', '$user_id']],
                 'primary' => true,
             ],
         ];
