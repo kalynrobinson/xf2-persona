@@ -13,6 +13,8 @@ class Persona extends \XF\Pub\Controller\AbstractController
      */
     public function actionSwitch()
     {
+        $this->assertValidCsrfToken($this->filter('token', 'str'));
+        
         $user_id = $this->filter('user_id', 'uint');
         $visitor = \XF::visitor();
         $user = $this->assertPersonaExists($visitor, $user_id);
@@ -27,7 +29,9 @@ class Persona extends \XF\Pub\Controller\AbstractController
         $loginPlugin = $this->plugin('XF:Login');
         $loginPlugin->completeLogin($user, true);
 
-        return $this->redirect('index');
+        // Redirect to previous page
+        $redirect = $this->getDynamicRedirect();
+        return $this->redirect($redirect);
     }
 
     /**
